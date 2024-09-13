@@ -204,6 +204,26 @@ void test_CopyAssignment() {
     assert(list2.get_customDeleteFunction() != 0);
     assert(list2.get_customEqualFunction() != 0);
 
+    XArrayListTest<int> list3;
+    list3.add(5);
+    list3 = list1;
+    assert(list3.size() == list1.size());
+    for (int i = 0; i < list1.size(); i++) {
+        assert(list3.get(i) == list1.get(i));
+    }
+
+    XArrayListTest<int> list4;
+    list4.add(5);
+    list4.add(6);
+    list4.add(7);
+    list4.add(8);
+
+    list4 = list1;
+    assert(list3.size() == list1.size());
+    for (int i = 0; i < list1.size(); i++) {
+        assert(list4.get(i) == list1.get(i));
+    }
+    
     cout << "PASS: Copy Assignment test" << endl;
 }
 
